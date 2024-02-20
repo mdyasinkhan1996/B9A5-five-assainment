@@ -9,16 +9,15 @@ function appendFormTableChild(id){
     list3.textContent = "550";
     tbody.appendChild(tr);
 }
-function selectedSeat(){
-    
-    const selectSeat = document.getElementById('selected-seat');
+function totalSeat(element){
+    const selectSeat = document.getElementById(element);
     const selectSeatText = selectSeat.innerText;
     const selectEsatNum = parseInt(selectSeatText);
     return selectEsatNum;
 }
 // priceCalaulate
 function priceCalaulate(){
-    const seat = selectedSeat();
+    const seat = totalSeat('selected-seat');
     const totalPriceElement = document.getElementById('totalPrice');
     const grandPriceElement = document.getElementById('grandTotalPrice');
     const price = 550;
