@@ -48,3 +48,10 @@ function discountNewPrice(value){
     grandPriceElement.innerText = newPrice;
     console.log(value, discountprice, newPrice);
 }
+
+// alert function
+function alertShow(content){
+    document.getElementById('alert').showModal();
+    const alertText = document.getElementById('alertMessage');
+    alertText.innerHTML = content
+}

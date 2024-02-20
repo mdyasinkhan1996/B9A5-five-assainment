@@ -30,10 +30,10 @@ function seatNumber(id){
                 addClassList('cuponBtn', 'btn-selected')
             }
         }else{
-            console.log('Seat not available')
+            alertShow('Seat not available')
         }
     }else{
-        console.log('Too many selected seat')
+        alertShow('Already 4 sates selected')
     }
     
     
@@ -51,22 +51,26 @@ function discountprice(){
         addClassList('cuponBtn', 'btn-disabled')
         removeClassList('cuponBtn', 'btn-selected')
      }else{
-        console.log('Invalid Cupon');
+        alertShow('Invalid Cupon')
      }
 }
-function successBtn(){
-    const phonenumber = document.getElementById('phone');
-    const phoneText = phonenumber.value;
-    
+
+const phonenumber = document.getElementById('phone');
+phonenumber.addEventListener('keyup', function(event){
     const seatnum = totalSeat('selected-seat');
-    if(seatnum > 0){
-        if(phoneText.length > 1){
-            document.getElementById('my_modal_2').showModal();
-        }else{
-            console.log('worrng')
-        }
+    if(phonenumber.value.length > 0 && seatnum > 0){
+        addClassList('nestBtn', 'btn-selected')
+        removeClassList('nestBtn', 'btn-disabled')
+    }else if(seatnum > 0){
+        addClassList('nestBtn', 'btn-disabled')
+        removeClassList('nestBtn', 'btn-selected')
+        alertShow('Give pnone number');
+    }else{
+        alertShow('Before select your seat');
     }
-    console.log(phoneText.length);
+})
+function successBtn(){
+    document.getElementById('my_modal_2').showModal();
 }
 function pageReload(){
     location.reload();

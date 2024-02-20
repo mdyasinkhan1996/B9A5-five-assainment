@@ -17,7 +17,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="relative">
+  
+    <!-- error message -->
+    <!-- <div id="alert" class="fixd hidden right-0">
+      <div role="alert" class="alert alert-warning w-80 ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+        <span id="errorMessage">Warning: Invalid email address!</span>
+      </div>
+    </div> -->
     <!-- navbar section  -->
     <div class="nav-section container mx-auto px-4 mb-12">
         <div class="navbar bg-base-100">
@@ -150,7 +158,7 @@
                     <p class="text-sm">Coach-009-WEB ! AC_Business</p>
                   </div>
                 </div>
-                <button class="btn bg-green-100 text-green-500 "><img src="images/seat-greenseat-green-filled.svg" alt=""> 40 Seats left</button>
+                <button class="btn bg-green-100 text-green-500 "><img src="images/seat-greenseat-green-filled.svg" alt=""> <span id="availableSeats">40</span> Seats left</button>
                 
               </div>
               <div class="bg-[#F7F8F8] mt-4 space-y-6 p-4">
@@ -188,7 +196,7 @@
               <div class="flex justify-between border-y-2 py-3 border-dashed">
                 <div>
                   <img src="" alt="">
-                  <p>Available <span id="availableSeats">40</span></p>
+                  <p>Available</p>
                 </div>
                 <div>
                   <img src="" alt="">
@@ -301,7 +309,7 @@
                   <input id="email" class="w-full border-2 border-gray-300 rounded-lg py-1 px-2" placeholder="Enter your email id" type="email" name="">
                 </div>
                 <div>
-                  <button onclick="successBtn()" class="btn bg-green-400 w-full text-white">Next</button>
+                  <button onclick="successBtn()" id="nestBtn" class="btn bg-green-400 w-full text-white btn-disabled">Next</button>
                 </div>
                 <div class="flex justify-between text-sm">
                   <a href="#">Terms and Conditions</a>
@@ -352,6 +360,19 @@
         </div>
       </div>
     </dialog>
+    <dialog id="alert" class="modal">
+      <div class="modal-box p-20">
+        <div class="text-center">
+            <h3 class="font-bold text-xl uppercase text-orange-500">alert!</h3>
+            <p id="alertMessage" class="py-4"></p>
+        
+            <form method="dialog">
+            <button class="bg-orange-400 px-2 py-1 rounded-3xl text-white">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
     <!-- script link  -->
     <script src="jsfiles/index.js"></script>
     <script src="jsfiles/utility.js"></script>
